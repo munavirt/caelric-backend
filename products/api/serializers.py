@@ -30,6 +30,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
             "image",
             "is_primary",
         ]
+        
 
 class ProductVariantSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True,read_only=True)
@@ -47,6 +48,7 @@ class ProductVariantSerializer(serializers.ModelSerializer):
             "images"
         ]
 
+
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     variants = ProductVariantSerializer(many=True,read_only=True)
@@ -63,5 +65,5 @@ class ProductSerializer(serializers.ModelSerializer):
             "variants",
             "is_active",
             "created_at",
-            "updated_at",
+            "upated_at",
         ]

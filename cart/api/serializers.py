@@ -5,7 +5,8 @@ from ..models import Cart, CartItem
 
 class CartItemSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source="product_variant.product.name",read_only=True)
-    color = serializers.CharField(source="product_variant.size",read_only=True)
+    color = serializers.CharField(source="product_variant.color",read_only=True)
+    size = serializers.CharField(source="product_variant.size",read_only=True)
     price = serializers.DecimalField(source="product_variant.price",max_digits=10,decimal_places=2,read_only=True)
 
     subtotal = serializers.SerializerMethodField()
